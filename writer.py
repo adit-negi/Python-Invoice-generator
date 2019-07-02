@@ -6,7 +6,7 @@ from reportlab.lib.pagesizes import letter
 from reportlab.pdfbase.ttfonts import TTFont
 import xlrd
 
-loc = ("payment.xlsx")
+loc = ("path of your file")  #I used an excel file to import the info
 wb = xlrd.open_workbook(loc)
 PlanPurchaseSheet = wb.sheet_by_index(0)
 
@@ -18,7 +18,7 @@ charecter_count = 97
 
 
 for i in range(2, total_plans_purchased):
-    if PlanPurchaseSheet.cell_value(i, 10) == "Payment Successful":
+    if PlanPurchaseSheet.cell_value(i, 10) == "Payment Successful":    #checks if payment is succesful
         Plan = PlanPurchaseSheet.cell_value(i, 4)
         Plan_type = int(Plan)
         if Plan_type == 120:
